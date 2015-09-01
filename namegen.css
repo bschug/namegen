@@ -1,0 +1,72 @@
+html, body, #container { height: 100%; margin: 0; padding: 0; }
+body > #container { height: auto; min-height: 100%; }
+#innercontainer { position: absolute; width: 100%; height: 50%; }
+#footer { 
+	clear: both; 
+	position: relative; 
+	z-index: 10; 
+	height: 80px; 
+	margin: 0; 
+	margin-top: -100px; 
+	padding:0; 
+}
+
+p, button { font-size: 14pt; }
+
+.centered {
+	width:100%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align:center;
+}
+.thename {
+	position: absolute;
+	bottom: 10px;
+}
+#thename {
+	font-weight: bold;
+	font-size: 40pt;
+}
+
+.reroll-buttons {
+	position: absolute;
+	margin-top: 10px;
+	top: 100%;
+}
+.reroll-buttons > button {
+	padding: 5px 10px 5px 10px;
+}
+
+#footer > p { 
+	font-family: sans-serif;
+	padding: 0;
+	margin: 0;
+}
+
+#footer > .fb-like {
+	margin-top: 20px;
+}
+
+/* move text more to the center in portrait mode */
+@media only screen and (orientation: portrait) {
+	.thename { padding-top: 30%; }
+}
+/*
+@media only screen and (min-width: 300px) { #footer { background-color: #00ff00; } }
+@media only screen and (min-width: 400px) { #footer { background-color: #ffff00; } }
+@media only screen and (min-width: 600px) { #footer { background-color: #ff0000; } }
+@media only screen and (min-width: 800px) { #footer { background-color: #ff00ff; } }
+@media only screen and (min-width: 1000px) { #footer { background-color: #0000ff; } }
+*/
+/* make text larger on high-dpi screens */
+@media only screen and (orientation: portrait) and (min-width: 800px), 
+{
+	#thename { font-size: 60pt; }
+	.thename { bottom: 30px; }
+	.reroll-buttons { margin-top: 30px; }
+	button, p { font-size: 40pt; }
+	#footer { height: 100px; margin-top: -200px; }
+	#footer > .fb-like { margin-top: 40px; }
+	#innercontainer { position: absolute; width: 100%; height: 50%; }
+}
+
