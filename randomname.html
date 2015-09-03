@@ -1,23 +1,24 @@
 <html>
 <head>
-<title>Namegen</title>
+<meta charset="utf-8"/>
+<title>Random Names!</title>
 <link rel="stylesheet" type="text/css" href="namegen.css"></link>
 <script type="text/javascript" src="common.js"></script>
-<script type="text/javascript" src="namegen.js"></script>
+<script type="text/javascript" src="randomname.js"></script>
+<script type="text/javascript" src="namegen2.js"></script>
 <script type="text/javascript">
 function displayName(name) {
 	document.getElementById("thename").innerHTML = name;
 }
-function displayNameAnimated(numNames, delay, gender) {
-	var name = gender === "male" ? generateMaleName() : generateFemaleName();
-	displayName(name);
+function displayNameAnimated(numNames, delay) {
+	displayName(randomName());
 	if (numNames > 1) {
 		var currentDelay = Math.max( 75, Math.pow( 0.8, numNames ) * delay );
-		setTimeout(function() { displayNameAnimated(numNames - 1, delay, gender); }, currentDelay);
+		setTimeout(function() { displayNameAnimated(numNames - 1, delay); }, currentDelay);
 	}
 }
 </script>
-</head>
+
 </head>
 <body>
 	<div id="fb-root"></div>
@@ -36,20 +37,20 @@ function displayNameAnimated(numNames, delay, gender) {
 				<span id="thename"></span>
 			</div>
 			<div class='reroll-buttons centered'>
-				<button type="button" onclick="displayNameAnimated(10, 550, 'male')">Male</button>
-				<button type="button" onclick="displayNameAnimated(10, 550, 'female')">Female</button>
+				<button type="button" onclick="displayName(randomName())">Next</button>
+                <button type="button" onclick="displayNameAnimated(10, 550)">New Name!</button>
 			</div>
 		</div>
 	</div>
 	<div id='footer' class='centered'>
 		<p class='centered'>You may also try:</p>
-		<p class='centered'><a href='randomname.html'>English Fantasy Names</a></p>
-		<p class='centered'><a href='deutschname.html'>German Fantasy Names</a></p>
-		<div class="fb-like" data-href="http://bschug.net/namegen.html" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+        <p class='centered'><a href='deutschname.html'>German Fantasy Names</a></p>
+		<p class='centered'><a href='namegen.html'>Real English Names</a></p>
+		<div class="fb-like" data-href="http://bschug.net/randomname.html" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
 	</div>
 
 	<script type="text/javascript">
-		document.title = "" + abbreviateNumber(getNumberOfCombinations(), US_NUMBER_NAMES) + " English Names!";
+		document.title = "" + abbreviateNumber(getNumberOfCombinations(), US_NUMBER_NAMES) + " Random Names!";
 	</script>
 </body>
 </html>
