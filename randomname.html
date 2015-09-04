@@ -17,6 +17,10 @@ function displayNameAnimated(numNames, delay) {
 		setTimeout(function() { displayNameAnimated(numNames - 1, delay); }, currentDelay);
 	}
 }
+function handleButtonClick() {
+	ga('send', 'event', 'namegen', 'generate');
+	displayNameAnimated(10, 550);
+}
 </script>
 
 </head>
@@ -39,7 +43,7 @@ function displayNameAnimated(numNames, delay) {
 	  ga('create', 'UA-67186151-1', 'auto');
 	  ga('send', 'pageview');
 
-	</script>	
+	</script>
 
 	<div id='container'>
 		<div id='innercontainer'>
@@ -48,7 +52,7 @@ function displayNameAnimated(numNames, delay) {
 			</div>
 			<div class='reroll-buttons centered'>
 				<!--button type="button" onclick="displayName(randomName())">Next</button-->
-                <button type="button" onclick="displayNameAnimated(10, 550)">New Name!</button>
+                <button type="button" onclick="handleButtonClick()">New Name!</button>
 			</div>
 		</div>
 	</div>
