@@ -5,9 +5,9 @@ body > #container { height: auto; min-height: 100%; }
 	clear: both; 
 	position: relative; 
 	z-index: 10; 
-	height: 80px; 
+	height: 100px; 
 	margin: 0; 
-	margin-top: -100px; 
+	margin-top: -150px; 
 	padding:0; 
 }
 
@@ -65,7 +65,7 @@ p, button { font-size: 14pt; }
 	.thename { bottom: 30px; }
 	.reroll-buttons { margin-top: 30px; }
 	button, p { font-size: 40pt; }
-	#footer { height: 100px; margin-top: -200px; }
+	#footer { height: 120px; margin-top: -220px; }
 	#footer > .fb-like { margin-top: 40px; }
 	#innercontainer { position: absolute; width: 100%; height: 50%; }
 }
