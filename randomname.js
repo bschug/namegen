@@ -6,8 +6,8 @@ var firstnamePrefixes = [
     "ka", "ke", "ken", "lar", "lau", "lin",
     "ma", "mar", "max",
     "nan", "pan",
-    "ro", "sa", "san", "sha", "ste", "su",
-    "theo", "tho", "timo",
+    "sa", "san", "sha", "ste", "su",
+    "theo", "tho", "timo", 
     "vic", "xan" ];
 var firstnameSuffixes = [
 	"bara", "beth", "bert", "bin", "bold", "by", "cy",
@@ -22,7 +22,7 @@ var firstnameSuffixes = [
     "thea", "theus", "thro", "thy", "tina", "tine", "toph", "topher", "ton", "tony", "tra", "trus",
     "vid", "ven", "ward", "well", "win", "wina", "der", "ya" ];
 var firstnameAny = [
-	"carl", "da", "min", "pe", "ron", "ter", "tor", "will",
+	"carl", "da", "mi", "min", "no", "pe", "ro", "ron", "ter", "to", "tor", "will",
 	"wolf"];
 
 var firstnamePrefixCounts = [
@@ -74,7 +74,7 @@ var lastnameSuffixes = [
 var lastnameAny = [
     "arm",
     "back", "ball", "barrel", "bass", "bear", "beard", "bed", "beer", "bell", "bird", "blood", "boy", "brood", "bunny",
-    "chicken", "child", "claw", "con", "cow", "crow",
+    "chicken", "child", "claw", "colt", "con", "cow", "crow",
     "dagger", "devil", "dog", "dork", "drop",
     "fire", "flesh", "foot", "forest", "fox", "fraud", "frog",
     "giant", "girl", "gold", "greed",
@@ -83,7 +83,7 @@ var lastnameAny = [
     "king",
     "land", "lead", "leather", "lust",
     "man", "meat", "milk", "mood", "mountain", "mouse", "mouth",
-    "neck", "nest", "noose",
+    "neck", "nerd", "nest", "noose",
     "paw", "pig", "ploy", "power", "pride", "prince",
     "rage", "rascal", "rock", "rogue", "ruse", "rush",
     "scare", "sheep", "silver", "smurf", "snake", "snow", "sow", "spark", "spring", "star", "stone", "storm", "strong", "sun", "sword", 
