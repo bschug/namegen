@@ -75,6 +75,41 @@ MarkovChain.prototype.draw = function(prefix) {
 	}
 }
 
+// Return a list of decision objects for each decision that was taken during
+// the generation of a given name.
+// Decision objects contain:
+//   .taken: WeightedValue object of the actual decision taken
+//   .otherOptions: List of WeightedValues of options that were not taken
+MarkovChain.prototype.analyzeName = function(name) {
+
+	function analyzeDecision(weightedList, value) {
+		var taken = null;
+		var otherOptions = []
+
+		for (var i=0; i < weightedList.length; i++) {
+			var entry = weightedList[i];
+			if (entry.value == value) {
+				taken = entry;
+			} else {
+				otherOptions.push(entry);
+			}
+		}
+
+		return {'taken': taken, 'otherOptions': otherOptions};
+	}
+
+	var decisions = [];
+	decisions.push(analyzeDecision(this.states['^'], name.substring(0, this.prefixLength)));
+	for (var i=0; i < name.length - this.prefixLength; i++) {
+		var prefix = name.substring(i, i + this.prefixLength);
+		var nextChar = name[i + this.prefixLength];
+		decisions.push(analyzeDecision(this.states[prefix], nextChar));
+	}
+	var finalState = name.substring(name.length - this.prefixLength, name.length);
+	decisions.push(analyzeDecision(this.states[finalState], '$'));
+	return decisions;
+}
+
 MarkovChain.prototype.stats = function() {
 	return {
 		'states': Object.keys(this.states).length,
@@ -135,10 +170,22 @@ femaleChain = new MarkovChain(femaleNames, 3);
 console.log("Loading surnames...")
 surnameChain = new MarkovChain(surnames, 3);
 
+function generateName(firstNameChain) {
+	var firstName = firstNameChain.generate();
+	var surname = surnameChain.generate();
+	return {
+		'result': firstName + " " + surname,
+		'decisions': {
+			'firstName': firstNameChain.analyzeName(firstName),
+			'surname': surnameChain.analyzeName(surname)
+		}
+	}
+}
+
 function generateMaleName() {
-	return maleChain.generate() + " " + surnameChain.generate();
+	return generateName(maleChain);
 }
 
 function generateFemaleName() {
-	return femaleChain.generate() + " " + surnameChain.generate();
+	return generateName(femaleChain);
 }

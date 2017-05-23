@@ -2,21 +2,123 @@
 <head>
 <title>Namegen</title>
 <link rel="stylesheet" type="text/css" href="namegen.css"></link>
+<style>
+#thename {
+	height: 100px;
+}
+.decision {
+	position: relative;
+	display: inline-block;
+	transition: transform 0.5s;
+	min-width: 15px;
+}
+.decision-option {
+	color: #808080;
+	position: absolute;
+	left: 0px;
+	transition: transform 0.5s, color 1s;
+}
+.placeholder {
+	position: relative;
+	visibility: hidden;
+}
+</style>
 <script type="text/javascript" src="common.js"></script>
 <script type="text/javascript" src="namegen.js"></script>
 <script type="text/javascript" src="markov.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
 <script type="text/javascript">
-function displayName(name) {
-	document.getElementById("thename").innerHTML = name;
-}
+
 function displayNameAnimated(numNames, delay, gender) {
+	$("#thename").empty();
 	var name = gender === "male" ? generateMaleName() : generateFemaleName();
-	displayName(name);
-	if (numNames > 1) {
-		var currentDelay = Math.max( 75, Math.pow( 0.8, numNames ) * delay );
-		setTimeout(function() { displayNameAnimated(numNames - 1, delay, gender); }, currentDelay);
+	console.log("Animating name " + name.result);
+
+	var delay = 0;
+	for (var i=0; i < name.decisions.firstName.length; i++) {
+		var decision = name.decisions.firstName[i];
+		delay += animateDecision(decision, delay);
+	}
+	delay += 500;
+
+	for (var i=0; i < name.decisions.surname.length; i++) {
+		var decision = name.decisions.surname[i];
+		delay += animateDecision(decision, delay);
 	}
 }
+function animateDecision(decision, delay) {
+	setTimeout(function() {
+		var decisionDiv = $('<div class="decision"></div>').appendTo("#thename");
+		// Add invisible placeholder to reserve required horizontal space
+		decisionDiv.append(createDecisionOptionElem(decision.taken, false, true));
+
+		// Create all the elements for the options
+		var decisionOptionElems = [];
+		decisionOptionElems.push(createDecisionOptionElem(decision.taken, true));
+		for (var i=0; i < Math.min(6, decision.otherOptions.length); i++) {
+			decisionOptionElems.push(createDecisionOptionElem(decision.otherOptions[i], false));
+		}
+		shuffle(decisionOptionElems);
+
+		// Show and fan-out the possible options
+		var takenIdx = null;
+		var takenPos = 0;
+		for (var i=0; i < decisionOptionElems.length; i++) {
+			var elem = decisionOptionElems[i];
+			decisionDiv.append(elem);
+			elem.style.transform = "translateY(" + (elem.offsetHeight * (i - decisionOptionElems.length/2)) + "px)";
+			console.log(elem.style.top);
+			if (elem.taken) {
+				takenIdx = i;
+				takenPos = elem.offsetHeight * (i - decisionOptionElems.length/2);
+			}
+		}
+
+		// Move them so that the taken option is at the right height
+		setTimeout(function() {
+			decisionDiv.get(0).style.transform = "translateY(" + (-takenPos) + "px)";
+		}, 200)
+
+		// Fade in the taken option, fade out the others
+		setTimeout(function() {
+			for (var i=0; i < decisionOptionElems.length; i++) {
+				var elem = decisionOptionElems[i];
+				elem.style.color = (i === takenIdx) ? "#000000" : "#fafafa";
+			}
+		}, 300)
+
+	}, delay);
+	return 500;
+}
+function createDecisionOptionElem(decision, taken, placeholder) {
+	var elem = document.createElement('SPAN');
+	if (decision.value === "$") {
+		elem.textContent = "_";
+		elem.style.paddingRight = "20px";
+	} else {
+		elem.textContent = decision.value;
+	}
+
+	elem.classList.add('decision-option');
+	if (placeholder)
+		elem.classList.add('placeholder');
+	elem.taken = taken;
+	elem.decision = decision;
+	return elem;
+}
+function shuffle(a) {
+    var j, x, i;
+    for (i = a.length; i; i--) {
+        j = Math.floor(Math.random() * i);
+        x = a[i - 1];
+        a[i - 1] = a[j];
+        a[j] = x;
+    }
+}
+
 function handleButtonClick(gender) {
 	ga('send', 'event', 'namegen', 'english-markov', gender);
 	displayNameAnimated(10, 550, gender);
@@ -46,8 +148,8 @@ function handleButtonClick(gender) {
 
 	<div id='container'>
 		<div id='innercontainer'>
-			<div class='thename centered'>
-				<span id="thename"></span>
+			<div class='thename centered' id='thename'>
+
 			</div>
 			<div class='reroll-buttons centered'>
 				<button type="button" onclick="handleButtonClick('male')">Male</button>
