@@ -16,7 +16,7 @@
 	color: #808080;
 	position: absolute;
 	left: 0px;
-	transition: transform 0.5s, color 1s;
+	transition: transform 0.75s, color 1s;
 }
 .placeholder {
 	position: relative;
@@ -32,7 +32,20 @@
   crossorigin="anonymous"></script>
 <script type="text/javascript">
 
+var inputAllowed = true;
+function disableButtons() {
+	$(".reroll-buttons > button").attr('disabled', 'disabled');
+	console.log("Disabling " + $(".reroll-buttons > button").get().length + " buttons");
+	inputAllowed = false;
+}
+function enableButtons() {
+	$(".reroll-buttons > button").removeAttr("disabled");
+	console.log("Enabling " + $(".reroll-buttons > button").get().length + " buttons");
+	inputAllowed = true;
+}
+
 function displayNameAnimated(numNames, delay, gender) {
+	disableButtons();
 	$("#thename").empty();
 	var name = gender === "male" ? generateMaleName() : generateFemaleName();
 	console.log("Animating name " + name.result);
@@ -48,6 +61,7 @@ function displayNameAnimated(numNames, delay, gender) {
 		var decision = name.decisions.surname[i];
 		delay += animateDecision(decision, delay);
 	}
+	setTimeout(enableButtons, delay);
 }
 function animateDecision(decision, delay) {
 	setTimeout(function() {
@@ -70,7 +84,6 @@ function animateDecision(decision, delay) {
 			var elem = decisionOptionElems[i];
 			decisionDiv.append(elem);
 			elem.style.transform = "translateY(" + (elem.offsetHeight * (i - decisionOptionElems.length/2)) + "px)";
-			console.log(elem.style.top);
 			if (elem.taken) {
 				takenIdx = i;
 				takenPos = elem.offsetHeight * (i - decisionOptionElems.length/2);
@@ -80,7 +93,7 @@ function animateDecision(decision, delay) {
 		// Move them so that the taken option is at the right height
 		setTimeout(function() {
 			decisionDiv.get(0).style.transform = "translateY(" + (-takenPos) + "px)";
-		}, 200)
+		}, 300)
 
 		// Fade in the taken option, fade out the others
 		setTimeout(function() {
@@ -88,7 +101,7 @@ function animateDecision(decision, delay) {
 				var elem = decisionOptionElems[i];
 				elem.style.color = (i === takenIdx) ? "#000000" : "#fafafa";
 			}
-		}, 300)
+		}, 400)
 
 	}, delay);
 	return 500;
