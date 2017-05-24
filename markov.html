@@ -93,7 +93,7 @@ function animateDecision(decision, delay) {
 		// Move them so that the taken option is at the right height
 		setTimeout(function() {
 			decisionDiv.get(0).style.transform = "translateY(" + (-takenPos) + "px)";
-		}, 300)
+		}, 400)
 
 		// Fade in the taken option, fade out the others
 		setTimeout(function() {
@@ -101,10 +101,10 @@ function animateDecision(decision, delay) {
 				var elem = decisionOptionElems[i];
 				elem.style.color = (i === takenIdx) ? "#000000" : "#fafafa";
 			}
-		}, 400)
+		}, 500)
 
 	}, delay);
-	return 500;
+	return 700;
 }
 function createDecisionOptionElem(decision, taken, placeholder) {
 	var elem = document.createElement('SPAN');
