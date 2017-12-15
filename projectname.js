@@ -10,19 +10,21 @@ var projectPrefixes = [
     'Rembrandt', 'Da Vinci', 'Transient', 'Intelligent', 'Big', 'Massive', 'Enormous', 'Giant', 'Extreme', 'Predictive',
     'Omniscient', 'Natural', 'Unstructured', 'Structured', 'Unsupervised', 'Supervised', 'Pre-trained', 'Big Data',
     'Deep', 'Theoretical', 'Applied', 'Business', 'Encrypted', 'Crypto', 'Assosciative', 'Esports', 'Automotive',
-    'Medical'];
+    'Medical', 'Random', 'B2B', 'Clean', 'Meme', 'Swipe', 'Anonymous', 'Tor', 'Web', 'Responsive', 'Responsible',
+    'Generative', 'Cyber', 'Airport', 'Human'];
 var projectSuffixes = [
 	'Accelerator', 'Incubator', 'Lake', 'Dome', 'Velocity', 'One', '2000', '42', 'Fox', 'Llama', 'Dog', 'Cat',
-    'Panda', 'Raptor', 'Disruptor', 'Battleground', 'Clean', 'Forge', 'Drive', 'Way', 'Argument',
+    'Panda', 'Raptor', 'Disruptor', 'Battleground', 'Forge', 'Drive', 'Way', 'Argument',
     'Plus', 'Minus', 'Mindset', 'Stuff', 'Pact', 'Call', 'Sketch', 'Blueprint', 'Cascade', 'Solution', '++',
-    'Inhibitor', 'Butler', 'Agent', 'Analytics', 'Warehouse', 'Nugget', 'Decoder', 'Encoder'];
+    'Inhibitor', 'Butler', 'Agent', 'Analytics', 'Warehouse', 'Nugget', 'Decoder', 'Encoder', 'Generator',
+    'Reasoning', 'Platform', 'Mining', 'Interface'];
 var projectAny = [
 	'Fort', 'Particle', 'Laser', 'Dinosaur', 'Knowledge', 'Wisdom', 'Portal', 'Storm', 'Sky', 'Thunder', 'Coin',
     'Innovation', 'Persistence', 'Attack', 'Speed', 'Lightning', 'Spark', 'Formula', 'Red', 'Green', 'Black', 'White',
     'Blue', 'Orphan', 'Doctor', 'Love', 'Secret', 'Bug', 'Spider', 'Space', 'Cookie', 'Blade', 'Frost', 'Golf',
     'Sniper', 'Buzzword', 'Radar', 'Dark', 'Whale', 'Learning', 'Machine', 'Monkey', 'Key',
     'Monitor', 'Background', 'Word', 'Science', 'City', 'Hype', 'Bullshit', 'Physics', 'Vortex', 'Tech', 'Future',
-    'Galaxy', 'Python', 'Infinity', 'Gypsy', 'Danger', 'Dart', 'Nova', 'Slam', 'Dash', 'Goal', 'Chrome', 'Metal',
+    'Galaxy', 'Python', 'Infinity', 'Gypsy', 'Danger', 'Dart', 'Slam', 'Dash', 'Goal', 'Chrome', 'Metal',
     'Cupcake', 'Donut', 'Eclair', 'Froyo', 'Gingerbread', 'Honeycomb', 'Ice Cream', 'Sandwich', 'Jelly Bean',
     'KitKat', 'Lollipop', 'Marshmallow', 'Nougat', 'Oreo', 'Mother', 'Whetstone', 'Riptide', 'Teleport',
     'Strike', 'Team', 'Community', 'Reinforcement', 'Network', 'Brain', 'Evolution', 'Viper', 'Assassin', 'Arrow',
@@ -30,7 +32,8 @@ var projectAny = [
     'Forest', 'Fire', 'Earth', 'Underground', 'Locker', 'Socket', 'Domain', 'Democracy', 'Socrates', 'Pythagoras',
     'Sharp', 'Shard', 'Mirror', 'Rabbit', 'Net', 'Road', 'Ability', 'Minion', 'Server', 'Venture', 'Share', 'Time',
     'Image', 'Picture', 'Painting', 'Code', 'Source', 'Language', 'Processing', 'Process', 'Wiki', 'Intelligence',
-    'Modeling', 'Oracle', 'Mining', 'Privacy', 'Cloud', 'Theory', 'Encryption', 'Currency', 'Assistant'];
+    'Modeling', 'Oracle', 'Privacy', 'Cloud', 'Theory', 'Encryption', 'Currency', 'Assistant', 'Payment',
+    'Acknowledgement', 'Marketing', 'Sharing', 'Input', 'Security', 'Highway', 'Drone'];
 
 
 function randomName() {
