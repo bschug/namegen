@@ -5,12 +5,17 @@ var projectPrefixes = [
     'Adversarial', 'Recurrent', 'Autonomous', 'Artificial', 'Neural', 'Genetic', 'Charged', 'Overcharged', 'Final',
     'Impatient', 'Patient', 'Greedy', 'Optimal', 'Temporal', 'Silent', 'Lean', 'Smart', 'Vital', 'Graceful',
     'Electronic', 'Positronic', 'Temporary', 'Provisional', 'Makeshift', 'Viral', 'Decision', 'Broken', 'Unfinished',
-    'Unbreakable', 'Secure', 'Connected', 'Interconnected', 'Interleaved', 'Democratic', 'Silk', 'Inhibited'];
+    'Unbreakable', 'Secure', 'Connected', 'Interconnected', 'Interleaved', 'Democratic', 'Silk', 'Inhibited', 'Like',
+    'Social', 'Twitter', 'Instagram', 'Facebook', 'Reddit', 'Air', 'Apple', 'Google', 'Microsoft', 'Van Gogh',
+    'Rembrandt', 'Da Vinci', 'Transient', 'Intelligent', 'Big', 'Massive', 'Enormous', 'Giant', 'Extreme', 'Predictive',
+    'Omniscient', 'Natural', 'Unstructured', 'Structured', 'Unsupervised', 'Supervised', 'Pre-trained', 'Big Data',
+    'Deep', 'Theoretical', 'Applied', 'Business', 'Encrypted', 'Crypto', 'Assosciative', 'Esports', 'Automotive',
+    'Medical'];
 var projectSuffixes = [
 	'Accelerator', 'Incubator', 'Lake', 'Dome', 'Velocity', 'One', '2000', '42', 'Fox', 'Llama', 'Dog', 'Cat',
     'Panda', 'Raptor', 'Disruptor', 'Battleground', 'Clean', 'Forge', 'Drive', 'Way', 'Argument',
     'Plus', 'Minus', 'Mindset', 'Stuff', 'Pact', 'Call', 'Sketch', 'Blueprint', 'Cascade', 'Solution', '++',
-    'Inhibitor', 'Butler'];
+    'Inhibitor', 'Butler', 'Agent', 'Analytics', 'Warehouse', 'Nugget', 'Decoder', 'Encoder'];
 var projectAny = [
 	'Fort', 'Particle', 'Laser', 'Dinosaur', 'Knowledge', 'Wisdom', 'Portal', 'Storm', 'Sky', 'Thunder', 'Coin',
     'Innovation', 'Persistence', 'Attack', 'Speed', 'Lightning', 'Spark', 'Formula', 'Red', 'Green', 'Black', 'White',
@@ -23,7 +28,9 @@ var projectAny = [
     'Strike', 'Team', 'Community', 'Reinforcement', 'Network', 'Brain', 'Evolution', 'Viper', 'Assassin', 'Arrow',
     'Clarity', 'Bear', 'Data', 'Database', 'Placeholder', 'Patch', 'Spirit', 'Tornado', 'Question', 'Graph', 'Tree',
     'Forest', 'Fire', 'Earth', 'Underground', 'Locker', 'Socket', 'Domain', 'Democracy', 'Socrates', 'Pythagoras',
-    'Sharp', 'Shard', 'Mirror', 'Rabbit', 'Net', 'Road', 'Ability', 'Minion', 'Server'];
+    'Sharp', 'Shard', 'Mirror', 'Rabbit', 'Net', 'Road', 'Ability', 'Minion', 'Server', 'Venture', 'Share', 'Time',
+    'Image', 'Picture', 'Painting', 'Code', 'Source', 'Language', 'Processing', 'Process', 'Wiki', 'Intelligence',
+    'Modeling', 'Oracle', 'Mining', 'Privacy', 'Cloud', 'Theory', 'Encryption', 'Currency', 'Assistant'];
 
 
 function randomName() {
