@@ -89,3 +89,14 @@ function abbreviateNumber(number, numberNames) {
 	}
 	return number.toFixed(2) + numberNames[exponent];
 }
+
+
+function combinationsForPrefixCount(prefixes, suffixes, any, numPrefixes) {
+	var p = prefixes.length;
+	var s = suffixes.length;
+	var a = any.length;
+	var np = numPrefixes;
+
+	return s * fallingFactorial(p+a, np)
+		 + a * fallingFactorial(p+a-1, np);
+}
