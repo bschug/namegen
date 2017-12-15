@@ -32,19 +32,23 @@ function drawWeighted(weightedList) {
 	throw "this is a bug";
 }
 
+// THIS FUNCTION RETURNS A BIGINT!
+// Argument must still be a JS integer
 function fac(n) {
-	var result = 1;
+	var result = bigInt(1);
 	for (var i=n; i>0; i--) {
-		result *= i;
+		result = result.times(i);
 	}
 	return result;
 }
 
+// THIS FUNCTION RETURNS A BIGINT!
+// Arguments must still be JS integers.
 // Number of variations of k elements drawn from a set of n elements,
 // when order is important.
 // Same as n * (n-1) * (n-2) * ... * (n-k+1)
 function fallingFactorial(n,k) {
-	return fac(n) / fac(n-k);
+	return fac(n).divide(fac(n-k));
 }
 
 
@@ -78,16 +82,21 @@ US_NUMBER_NAMES = ['', 'k', ' million', ' billion', ' trillion', ' quadrillion',
 SI_PREFIX_SYMBOLS = ['','k','M','G','T','P','E','Z','Y'];
 
 function abbreviateNumber(number, numberNames) {
-	if (number <= 1000) {
-		return number;
+	var result;
+
+	number = bigInt(number);
+	if (number.lesserOrEquals(1000)) {
+		return number.toString();
 	}
 
 	var exponent = 0;
-	while (number > 1000 && exponent < (numberNames.length - 1)) {
-		number /= 1000;
+	while (number.greater(1000) && exponent < (numberNames.length - 1)) {
+		result = number.divmod(1000);
+		number = result.quotient;
 		exponent += 1;
 	}
-	return number.toFixed(2) + numberNames[exponent];
+	result.remainder = result.remainder.divide(100);
+	return result.quotient.toString() + '.' + result.remainder.toString() + numberNames[exponent];
 }
 
 
@@ -97,6 +106,6 @@ function combinationsForPrefixCount(prefixes, suffixes, any, numPrefixes) {
 	var a = any.length;
 	var np = numPrefixes;
 
-	return s * fallingFactorial(p+a, np)
-		 + a * fallingFactorial(p+a-1, np);
+	return bigInt(s).times(fallingFactorial(p+a, np))
+	 .plus(bigInt(a).times(fallingFactorial(p+a-1, np)));
 }
