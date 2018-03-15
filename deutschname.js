@@ -1,5 +1,7 @@
 var firstnamePrefixes = [
-	'Fire', 'Earth', 'Bit', 'Byte', 'Mega', 'Giga', 'Ultra', 'Super', 'Awesome', 'Amazing'];
+	"adel", "anne", "bar", "bertels", "chris", "elisa",
+	"glücks", "gott", "gram", "groß",
+	"inge", "irm", "klein", "mett", "nor", "nar", "mar", "pu"];
 var firstnameSuffixes = [
 	"bara", "beth", "bold", "era", "fred", "frieda",
 	"gang", "gard", "garst", "gret", "grid",
