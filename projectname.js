@@ -16,7 +16,7 @@ var projectSuffixes = [
 	'Accelerator', 'Incubator', 'Lake', 'Dome', 'Velocity', 'One', '2000', '42', 'Fox', 'Llama', 'Dog', 'Cat',
     'Panda', 'Raptor', 'Disruptor', 'Battleground', 'Forge', 'Drive', 'Way', 'Argument',
     'Plus', 'Minus', 'Mindset', 'Stuff', 'Pact', 'Call', 'Sketch', 'Blueprint', 'Cascade', 'Solution', '++',
-    'Inhibitor', 'Butler', 'Agent', 'Analytics', 'Warehouse', 'Nugget', 'Decoder', 'Encoder', 'Generator',
+    'Inhibitor', 'Butler', 'Agent', 'Warehouse', 'Nugget', 'Decoder', 'Encoder', 'Generator',
     'Reasoning', 'Platform', 'Mining', 'Interface'];
 var projectAny = [
 	'Fort', 'Particle', 'Laser', 'Dinosaur', 'Knowledge', 'Wisdom', 'Portal', 'Storm', 'Sky', 'Thunder', 'Coin',
@@ -33,7 +33,7 @@ var projectAny = [
     'Sharp', 'Shard', 'Mirror', 'Rabbit', 'Net', 'Road', 'Ability', 'Minion', 'Server', 'Venture', 'Share', 'Time',
     'Image', 'Picture', 'Painting', 'Code', 'Source', 'Language', 'Processing', 'Process', 'Wiki', 'Intelligence',
     'Modeling', 'Oracle', 'Privacy', 'Cloud', 'Theory', 'Encryption', 'Currency', 'Assistant', 'Payment',
-    'Acknowledgement', 'Marketing', 'Sharing', 'Input', 'Security', 'Highway', 'Drone'];
+    'Acknowledgement', 'Marketing', 'Sharing', 'Input', 'Security', 'Highway', 'Analytics', 'Drone'];
 
 
 function randomName() {
