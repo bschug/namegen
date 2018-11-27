@@ -14,21 +14,21 @@ var Prefix = [
     "Sleepy", "Raging", "Calm", "Molten", "Easy", "Delicious", "Hungry", "Strong", "Fallen", "Flaming", "Always", "Never",
     "Born", "Greatest", "Super", "Lying", "True", "Smiling", "Shiny", "Immortal", "Forsaken", "Omnipotent", "Omniscient",
     "Divine", "Infernal", "Abyssal", "Breaking", "Broken", "Dead", "Human", "Eternal", "Beyond", "Lost", "Grim", "Spirit",
-    "Red", "Green", "Blue", "Yellow", "Pink", "Black", "White", "Verdant", "Dark", "Bright", "Light", "Ashen",
+    "Red", "Green", "Blue", "Yellow", "Pink", "Black", "White", "Verdant", "Dark", "Bright", "Light", "Ashen", "Toxic",
     "Noob", "Monster", "OMG", "Twitch", "Hashtag", "Necro", "Witch", "Cold", "Brutal", "Ancient", "Modern", "Valiant",
     "Quantum", "Meta", "Random", "Paper", "Burning", "Rolling", "Wise", "Smart", "Witty", "Simple", "Elaborate", "Flame",
     "Sometimes", "Forever", "Mister", "Burning Hot", "OP", "Official", "Unofficial", "Imperial", "National", "International",
     "Excessive", "Massive", "Free", "Freedom", "Silent", "Roaring", "Legendary", "Legitimate", "Cute", "Healthy", "Lifting",
     "Sword", "Axe", "Gun", "Bullet", "Razor", "Natural", "Organic", "Robotic", "Artificial", "Superhuman", "Holy", "Unholy",
-     "Pizza", "Runtime", "Gank", "Nerd", "Champion", "Master",
+     "Pizza", "Runtime", "Gank", "Nerd", "Champion", "Master", "Hollow",
     "Guild of", "Nation of", "Family of", "Cult of", "Rite of", "Legend of", "Gang of", "Mother of all", "All the", "Against the",
-    "Knights of", "Sacrifice of", "To the", "Shooting for the", "Law of", "Your Mom's", "Born in", "Hiding in", "Pursuing the",
-    "Pursuit of", "Follow the"
+    "Knights of", "Sacrifice of", "To the", "Shooting for the", "Law of", "Your Mom's", "Born in", "Hiding in", "Hiding from", 
+    "Pursuing the", "Pursuit of", "Follow the", "Running with", "Running from",
 ];
 var Suffix = [
     "Pigs", "Panthers", "Tigers", "Bulls", "Horses", "Llamas", "Bears", "Monkeys", "Dinos", "Raptors", "Goats", "Wolves",
     "Ravens", "Dragons",
-    "Stars", "Lies", "Truth", "Smiles", "Eyes", "Eyeballs", "Gems", "Abyss", "Quest", "Flames", "Hearts", "Jackpot",
+    "Stars", "Lies", "Truth", "Smiles", "Eyes", "Eyeballs", "Gems", "Abyss", "Quests", "Flames", "Hearts", "Jackpot",
     "Food", "Drinks",
     "Swarm", "Pack", "Gathering", "Guild", "Friends", "Family", "Union", "Nation", "Cult", "Cartel",
     "Noobs", "Sports", "Esports", "Strats", "Monsters", "Demons", "Skulls", "Skills", "Gaming", "Wings", "GG", "TV", "Builds",
@@ -36,9 +36,9 @@ var Suffix = [
     "Lords", "Witches", "Ones", "Faces", "Artists", "Wizards", "Acrobats", "Hunters", "Gunslingers", "Men", "Heads",
     "Duelists", "Shadows", "Dancers", "Bros", "Nerds", "Doctors", "Champions", "Masters", "Athletes", "Grannies",
     "Swords", "Axes", "Guns", "Arms", "Bullets", "Fist", "Fists", "Razors", "Claws",
-    "Fall", "Force", "Fear", "Throne", "Torment", "Gate", "Dawn", "Spirits", "Forest", "Slaughter", "Wrath", "Heaven",
-    "Noise", "Music", "Songs", "Burn", "Source", "Sacrifice", "is Real",
-    "Plus", "Law"
+    "Fall", "Force", "Fear", "Thrones", "Torment", "Gates", "Dawn", "Spirits", "Forest", "Slaughters", "Wrath", "Heaven",
+    "Noise", "Music", "Songs", "Burns", "Sources", "Sacrifices", "is Real",
+    "Plus", "Laws", "Moms", "Mothers"
 ];
 
 var Vowels = "aeiouAEIOU";
@@ -105,7 +105,7 @@ function SoundsStupid2 (first, last) {
     if (first.includes(last) || last.includes( first ) ) {
         return true;
     }
-    if ((first.endsWith(" the") || first.endsWith(" of") || first.endsWith(" all")) && (last.startsWith("is " ))) {
+    if ((first.endsWith(" the") || first.endsWith(" of") || first.endsWith(" all") || first.endsWith(" from") || first.endsWith(" with")) && (last.startsWith("is " ))) {
         return true;
     }
     return false;
