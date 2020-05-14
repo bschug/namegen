@@ -20,7 +20,7 @@ THINGS_TO_LOSE = ["glasses", "wallet", "sanity", "beer", "shit", "password", "mo
 
 THINGS_TO_CRASH = ["computer", "car", "bicycle", "motorcycle", "Unity", "Photoshop", "Playstation", "stock market portfolio"];
 
-EMOTIONS = ["angry", "sad", "depressed", "happy", "hungry", "sick", "impatient", "annoyed", "excited"];
+EMOTIONS = ["angry", "sad", "depressed", "happy", "hungry", "sick", "impatient", "annoyed", "excited", "bored"];
 
 DESTROYED = ["lost", "crushed", "dropped", "burned", "broke", "forgot", "ate"];
 
@@ -51,7 +51,7 @@ function generateReason()
 }
 
 function iGotArrested() {
-	return "I " + draw(["got ","almost got "]) + draw([
+	return draw([someoneActive() + " got ", "I almost got "]) + draw([
 		function() { return "arrested for " + activity() },
 		function() { return "arrested" + when() },
 		function() { return "caught " + activity() }
@@ -113,7 +113,8 @@ function someoneElse() {
 function activity() {
 	return draw([
 		function() { return draw(ACTIVITIES) },
-		function() { return draw(ACTIVITIES) + " with " + someoneElse() }
+		function() { return draw(ACTIVITIES) + " with " + someoneElse() },
+		function() { return draw(["avoiding " + someoneElse(), "avoiding the " + draw(PLACES_FOR_PEOPLE)]) },
 	])();
 }
 
