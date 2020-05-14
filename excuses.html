@@ -12,6 +12,7 @@ function displayName(name) {
 function handleButtonClick() {
 	ga('send', 'event', 'namegen', 'excuseme');
 	displayName(generateExcuse());
+	document.getElementById("thebutton").innerHTML = "Excuse Me" + draw([".","!","?","!?","?!"]);
 }
 </script>
 </head>
@@ -42,7 +43,7 @@ function handleButtonClick() {
 				<span id="thename"></span>
 			</div>
 			<div class='reroll-buttons centered'>
-				<button type="button" onclick="handleButtonClick()">Excuse Me</button>
+				<button type="button" onclick="handleButtonClick()" id="thebutton">Excuse Me</button>
 			</div>
 		</div>
 	</div>

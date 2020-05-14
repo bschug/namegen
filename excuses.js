@@ -10,7 +10,7 @@ INTROS = [
 
 PEOPLE = ["wife", "husband", "brother", "kid", "grandma", "grandpa", "mother", "father", "friend", "girlfriend", "boyfriend", "imaginary friend", "dog", "cat", "hamster", "doctor", "chicken"];
 
-PLACES_FOR_PEOPLE = ["doctor", "airport", "supermarket", "pharmacy", "hospital", "cemetary", "zoo", "school", "university", "furniture store", "asylum", "divorce lawyer", "police", "restaurant"];
+PLACES_FOR_PEOPLE = ["doctor", "airport", "supermarket", "pharmacy", "hospital", "cemetary", "zoo", "school", "university", "furniture store", "asylum", "divorce lawyer", "police", "restaurant", "B&uuml;rgeramt"];
 
 THINGS_THAT_BREAK = ["car", "computer", "laptop", "monitor", "mouse", "keyboard", "oven", "fridge", "VR headset", "body", "brain", "shoes", "git repository", "Photoshop", "Excel", "bicycle", "motorcycle", "bicycle helmet", "motorcycle helmet", "bed", "chair", "table", "phone", "excuse generator"];
 
@@ -20,7 +20,7 @@ THINGS_TO_LOSE = ["glasses", "wallet", "sanity", "beer", "shit", "password", "mo
 
 THINGS_TO_CRASH = ["computer", "car", "bicycle", "motorcycle", "Unity", "Photoshop", "Playstation", "stock market portfolio"];
 
-EMOTIONS = ["angry", "sad", "depressed", "happy", "hungry", "sick", "impatient", "annoyed", "excited", "bored", "lazy"];
+EMOTIONS = ["angry", "sad", "depressed", "happy", "hungry", "sick", "impatient", "annoyed", "excited", "bored", "lazy", "scared", "anxious", "agitated"];
 
 DESTROYED = ["lost", "crushed", "dropped", "burned", "broke", "forgot", "ate"];
 
@@ -43,6 +43,7 @@ function generateReason()
 	return draw([
 		someoneWasDoingSomething,
 		iHadToTakeXtoY,
+		iHadToPickUpXfromY,
 		myXBrokeDownWhileY,
 		iLostSomething,
 		myXWasStolen,
@@ -79,6 +80,10 @@ function iHadToTakeXtoY() {
 	return "I had to take " + someonePassive() + " to the " + draw(PLACES_FOR_PEOPLE) + when(); 
 }
 
+function iHadToPickUpXfromY() {
+	return "I had to pick up " + someonePassive() + " from the " + draw(PLACES_FOR_PEOPLE) + when();
+}
+
 function myXBrokeDownWhileY() {
 	return "my " + draw(THINGS_THAT_BREAK) + " broke down" + when();
 }
@@ -104,7 +109,7 @@ function someoneWasDoingSomething() {
 }
 
 function someonesEmotion() {
-	return someoneActive() + " got " + draw(EMOTIONS) + when();
+	return someoneActive() + " was " + draw(EMOTIONS) + when();
 }
 
 function someones() {
