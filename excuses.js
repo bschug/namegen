@@ -14,7 +14,7 @@ PLACES_FOR_PEOPLE = ["doctor", "airport", "supermarket", "pharmacy", "hospital",
 
 THINGS_THAT_BREAK = ["car", "computer", "laptop", "monitor", "mouse", "keyboard", "oven", "fridge", "vr headset", "body", "brain", "shoes", "Unity", "Photoshop", "Excel", "bicycle", "motorcycle", "bicycle helmet", "motorcycle helmet", "bed", "chair", "table", "phone", "excuse generator"];
 
-ACTIVITIES = ["driving", "sleeping", "on my way home", "doing groceries", "finishing my tasks", "working overtime", "being busy", "working hard", "going to the airport", "on the train", "swimming", "taking a shower", "feeding my cat", "feeding my dog", "on the phone", "binge drinking", "smoking weed", "faking statistics", "watering the plants"];
+ACTIVITIES = ["driving", "sleeping", "on my way home", "doing groceries", "finishing my tasks", "working overtime", "being busy", "working hard", "going to the airport", "on the train", "swimming", "taking a shower", "feeding my cat", "feeding my dog", "on the phone", "binge drinking", "smoking weed", "faking statistics", "watering the plants", "playing video games"];
 
 THINGS_TO_LOSE = ["glasses", "wallet", "sanity", "beer", "shit", "password", "money", "Facebook password", "Trello account", "keys", "inheritance", "claim to the throne", "trust"];
 
@@ -100,6 +100,8 @@ function when() {
 		" while I was " + draw(ACTIVITIES),
 		" at the " + draw(PLACES_FOR_PEOPLE),
 		" while I was taking my " + draw(PEOPLE) + " to the " + draw(PLACES_FOR_PEOPLE),
-		", so I spent too much time " + draw(ACTIVITIES)
+		", so I spent too much time " + draw(ACTIVITIES),
+		" because I was busy " + draw(ACTIVITIES),
+		" because " + someoneWas() + draw(ACTIVITIES)
 	]);
 }
