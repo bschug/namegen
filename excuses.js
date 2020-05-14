@@ -8,9 +8,9 @@ INTROS = [
 	"So sorry about this, but"
 ];
 
-PEOPLE = ["wife", "husband", "brother", "kid", "kids", "grandma", "grandpa", "mother", "father", "friend", "girlfriend", "boyfriend", "robot butler", "dog", "cat", "hamster", "doctor", "chicken"];
+PEOPLE = ["wife", "husband", "brother", "kid", "kids", "grandma", "grandpa", "mother", "father", "friend", "girlfriend", "boyfriend", "imaginary friend", "dog", "cat", "hamster", "doctor", "chicken"];
 
-PLACES_FOR_PEOPLE = ["doctor", "airport", "supermarket", "pharmacy", "hospital", "cemetary", "zoo", "school", "university", "furniture store", "asylum", "divorce lawyer"];
+PLACES_FOR_PEOPLE = ["doctor", "airport", "supermarket", "pharmacy", "hospital", "cemetary", "zoo", "school", "university", "furniture store", "asylum", "divorce lawyer", "police", "restaurant"];
 
 THINGS_THAT_BREAK = ["car", "computer", "laptop", "monitor", "mouse", "keyboard", "oven", "fridge", "VR headset", "body", "brain", "shoes", "Unity", "Photoshop", "Excel", "bicycle", "motorcycle", "bicycle helmet", "motorcycle helmet", "bed", "chair", "table", "phone", "excuse generator"];
 
@@ -45,7 +45,16 @@ function generateReason()
 		myXWasStolen,
 		myXAteMyY,
 		someonesEmotion,
-		iWasBusy
+		iWasBusy,
+		iGotArrested,
+	])();
+}
+
+function iGotArrested() {
+	return "I " + draw(["got ","almost got "]) + draw([
+		function() { return "arrested for " + activity() },
+		function() { return "arrested" + when() },
+		function() { return "caught " + activity() }
 	])();
 }
 
