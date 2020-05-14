@@ -37,6 +37,13 @@ function generateIntro()
 {
 	return draw(INTROS);
 }
+/*
+function _generateReason() {
+	do {
+		var reason = generateReason();
+	} while (!reason.includes("dream"))
+	return reason;
+}*/
 
 function generateReason()
 {
@@ -53,7 +60,12 @@ function generateReason()
 		iGotArrested,
 		weather,
 		thinkingAboutBadThings,
+		iHadADream
 	])();
+}
+
+function iHadADream() {
+	return "I had a really cool dream where " + someoneActive() + " was " + activity() + when();
 }
 
 function thinkingAboutBadThings() {
@@ -150,6 +162,7 @@ function when() {
 		function() { return " while I was taking my " + draw(PEOPLE) + " to the " + draw(PLACES_FOR_PEOPLE)},
 		function() { return ", so I spent too much time " + draw(ACTIVITIES)},
 		function() { return " because " + generateReason() },
-		function() { return " when " + generateReason() }
+		function() { return " when " + generateReason() },
+		function() { return " and then " + generateReason() }
 	])();
 }
