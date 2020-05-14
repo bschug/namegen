@@ -8,23 +8,25 @@ INTROS = [
 	"So sorry about this, but"
 ];
 
-PEOPLE = ["wife", "husband", "brother", "kid", "kids", "grandma", "grandpa", "mother", "father", "friend", "girlfriend", "boyfriend", "imaginary friend", "dog", "cat", "hamster", "doctor", "chicken"];
+PEOPLE = ["wife", "husband", "brother", "kid", "grandma", "grandpa", "mother", "father", "friend", "girlfriend", "boyfriend", "imaginary friend", "dog", "cat", "hamster", "doctor", "chicken"];
 
 PLACES_FOR_PEOPLE = ["doctor", "airport", "supermarket", "pharmacy", "hospital", "cemetary", "zoo", "school", "university", "furniture store", "asylum", "divorce lawyer", "police", "restaurant"];
 
-THINGS_THAT_BREAK = ["car", "computer", "laptop", "monitor", "mouse", "keyboard", "oven", "fridge", "VR headset", "body", "brain", "shoes", "Unity", "Photoshop", "Excel", "bicycle", "motorcycle", "bicycle helmet", "motorcycle helmet", "bed", "chair", "table", "phone", "excuse generator"];
+THINGS_THAT_BREAK = ["car", "computer", "laptop", "monitor", "mouse", "keyboard", "oven", "fridge", "VR headset", "body", "brain", "shoes", "git repository", "Photoshop", "Excel", "bicycle", "motorcycle", "bicycle helmet", "motorcycle helmet", "bed", "chair", "table", "phone", "excuse generator"];
 
 ACTIVITIES = ["driving", "sleeping", "on my way home", "doing groceries", "finishing my tasks", "working overtime", "being busy", "working hard", "going to the airport", "on the train", "swimming", "taking a shower", "feeding my cat", "feeding my dog", "on the phone", "binge drinking", "smoking weed", "faking statistics", "watering the plants", "playing video games", "planning", "drinking coffee", "doing drugs", "coming up with an excuse"];
 
-THINGS_TO_LOSE = ["glasses", "wallet", "sanity", "beer", "shit", "password", "money", "Facebook password", "Trello account", "keys", "inheritance", "claim to the throne", "trust", "shirt", "clothes", "underwear", "cocaine", "argument", "dignity", "excuse", "homework"];
+THINGS_TO_LOSE = ["glasses", "wallet", "sanity", "beer", "shit", "password", "money", "Facebook password", "Trello account", "keys", "inheritance", "claim to the throne", "trust", "shirt", "clothes", "underwear", "cocaine", "argument", "dignity", "excuse", "homework", "face mask"];
 
 THINGS_TO_CRASH = ["computer", "car", "bicycle", "motorcycle", "Unity", "Photoshop", "Playstation", "stock market portfolio"];
 
-EMOTIONS = ["angry", "sad", "depressed", "happy", "hungry", "sick", "impatient", "annoyed", "excited", "bored"];
+EMOTIONS = ["angry", "sad", "depressed", "happy", "hungry", "sick", "impatient", "annoyed", "excited", "bored", "lazy"];
 
 DESTROYED = ["lost", "crushed", "dropped", "burned", "broke", "forgot", "ate"];
 
 TIMES = ["yesterday", "today", "now", "the other day", "last year", "just now", "recently", "this morning"];
+
+BAD_THINGS = ["gas prices", "death", "capitalism", "the heat death of the universe", "our project", "the future", "the past", "politics", "my drug addiction", "my second marriage", "my lost youth", "all the lost opportunities", "starving children", "last night", "all my past mistakes", "when I became old", "why I don't understand those kids anymore", "the stupidity of our species", "asteroid impacts", "supervolcanos", "tsunamis", "global warming", "global extinction events", "pandemics", "the zombie apocalypse"];
 
 function generateExcuse()
 {
@@ -39,6 +41,7 @@ function generateIntro()
 function generateReason()
 {
 	return draw([
+		someoneWasDoingSomething,
 		iHadToTakeXtoY,
 		myXBrokeDownWhileY,
 		iLostSomething,
@@ -47,7 +50,17 @@ function generateReason()
 		someonesEmotion,
 		iWasBusy,
 		iGotArrested,
+		weather,
+		thinkingAboutBadThings,
 	])();
+}
+
+function thinkingAboutBadThings() {
+	return someoneWas() + draw([" thinking", " talking", " discussing with " + someoneElse()]) + " about " + draw(BAD_THINGS);
+}
+
+function weather() {
+	return draw(["it was raining", "the weather was so nice", "it was cloudy", "it was too cold outside", "it was too hot outside"]);
 }
 
 function iGotArrested() {
@@ -86,8 +99,12 @@ function myXAteMyY() {
 	return someoneActive() + " ate " + someones() + draw(THINGS_TO_LOSE.concat(THINGS_THAT_BREAK).concat(PEOPLE)) + when();
 }
 
+function someoneWasDoingSomething() {
+	return someoneWas() + activity() + when();
+}
+
 function someonesEmotion() {
-	return someoneActive() + " got " + draw(EMOTIONS) + " because " + someoneWas() + activity() + when();
+	return someoneActive() + " got " + draw(EMOTIONS) + when();
 }
 
 function someones() {
