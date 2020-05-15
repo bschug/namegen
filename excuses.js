@@ -10,7 +10,7 @@ INTROS = [
 
 PEOPLE = ["wife", "husband", "brother", "kid", "grandma", "grandpa", "mother", "father", "friend", "girlfriend", "boyfriend", "imaginary friend", "dog", "cat", "hamster", "doctor", "chicken"];
 
-PLACES_FOR_PEOPLE = ["doctor", "airport", "supermarket", "pharmacy", "hospital", "cemetary", "zoo", "school", "university", "furniture store", "asylum", "divorce lawyer", "police", "restaurant", "B&uuml;rgeramt"];
+PLACES_FOR_PEOPLE = ["doctor", "airport", "supermarket", "pharmacy", "hospital", "cemetary", "zoo", "school", "university", "mental hospital", "divorce lawyer", "police", "restaurant", "B&uuml;rgeramt", "homeless shelter"];
 
 THINGS_THAT_BREAK = ["car", "computer", "laptop", "monitor", "mouse", "keyboard", "oven", "fridge", "VR headset", "body", "brain", "shoes", "git repository", "Photoshop", "Excel", "bicycle", "motorcycle", "bicycle helmet", "motorcycle helmet", "bed", "chair", "table", "phone", "excuse generator"];
 
@@ -59,8 +59,13 @@ function generateReason()
 		iGotArrested,
 		weather,
 		thinkingAboutBadThings,
-		iHadADream
+		iHadADream,
+		someoneDidXatY
 	])();
+}
+
+function someoneDidXatY() {
+  return someoneActive() + " was " + activity() + " at the " + draw(PLACES_FOR_PEOPLE) + when();
 }
 
 function iHadADream() {
@@ -116,7 +121,10 @@ function someoneWasDoingSomething() {
 }
 
 function someonesEmotion() {
-	return someoneActive() + " was " + draw(EMOTIONS) + when();
+	return draw([
+		function() { return someoneActive() + " was " + draw(EMOTIONS) + when() },
+		function() { return someoneActive() + " was " + draw(EMOTIONS) + " about " + draw(BAD_THINGS) + when() }
+	])();
 }
 
 function someones() {
