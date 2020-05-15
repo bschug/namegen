@@ -16,7 +16,7 @@ THINGS_THAT_BREAK = ["car", "computer", "laptop", "monitor", "mouse", "keyboard"
 
 ACTIVITIES = ["driving", "sleeping", "on my way home", "doing groceries", "finishing my tasks", "working overtime", "being busy", "working hard", "going to the airport", "on the train", "swimming", "taking a shower", "feeding my cat", "feeding my dog", "on the phone", "binge drinking", "smoking weed", "faking statistics", "watering the plants", "playing video games", "planning", "drinking coffee", "doing drugs", "coming up with an excuse"];
 
-THINGS_TO_LOSE = ["glasses", "wallet", "sanity", "beer", "shit", "password", "money", "Facebook password", "Trello account", "keys", "inheritance", "claim to the throne", "trust", "shirt", "clothes", "underwear", "cocaine", "argument", "dignity", "excuse", "homework", "face mask"];
+THINGS_TO_LOSE = ["glasses", "wallet", "sanity", "beer", "shit", "password", "money", "Facebook password", "Trello account", "keys", "inheritance", "claim to the throne", "trust", "shirt", "clothes", "underwear", "cocaine", "argument", "dignity", "excuse", "homework", "face mask", "virginity"];
 
 THINGS_TO_CRASH = ["computer", "car", "bicycle", "motorcycle", "Unity", "Photoshop", "Playstation", "stock market portfolio"];
 
@@ -37,11 +37,11 @@ function generateIntro()
 {
 	return draw(INTROS);
 }
-/*
-function _generateReason() {
+
+/*function _generateReason() {
 	do {
 		var reason = generateReason();
-	} while (!reason.includes("dream"))
+	} while (!reason.includes("virginity"))
 	return reason;
 }*/
 
@@ -54,7 +54,6 @@ function generateReason()
 		myXBrokeDownWhileY,
 		iLostSomething,
 		myXWasStolen,
-		myXAteMyY,
 		someonesEmotion,
 		iWasBusy,
 		iGotArrested,
@@ -110,10 +109,6 @@ function destroyedSomething() {
 
 function myXWasStolen() {
 	return someoneElse() + " stole " + someones() + draw(THINGS_TO_LOSE.concat(THINGS_THAT_BREAK).concat(PEOPLE)) + when();
-}
-
-function myXAteMyY() {
-	return someoneActive() + " ate " + someones() + draw(THINGS_TO_LOSE.concat(THINGS_THAT_BREAK).concat(PEOPLE)) + when();
 }
 
 function someoneWasDoingSomething() {
