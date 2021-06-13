@@ -11,6 +11,7 @@
 <script src="http://peterolson.github.com/BigInteger.js/BigInteger.min.js"></script>
 <script type="text/javascript" src="common.js"></script>
 <script type="text/javascript" src="esports.js"></script>
+<script src="https://jeremyckahn.github.io/keydrown/dist/keydrown.min.js"></script>
 <script type="text/javascript">
 function displayName(name) {
 	document.getElementById("thename").innerHTML = name;
@@ -25,8 +26,24 @@ function displayNameAnimated(numNames, delay) {
 }
 function handleButtonClick() {
 	ga('send', 'event', 'namegen', 'esports');
-	displayNameAnimated(10, 550);
+	if (ANIMATED) {
+		displayNameAnimated(10, 550);
+	} else {
+		displayName(randomName());
+	}
 }
+
+var ANIMATED = true;
+document.addEventListener('keydown', function(evt) {
+	if (evt.keyCode === 16) {
+		ANIMATED = false;
+	}
+});
+document.addEventListener('keyup', function(evt) {
+	if (evt.keyCode === 16) {
+		ANIMATED = true;
+	}
+});
 </script>
 
 </head>

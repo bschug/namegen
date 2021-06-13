@@ -5,13 +5,16 @@
 <script src="http://peterolson.github.com/BigInteger.js/BigInteger.min.js"></script>
 <script type="text/javascript" src="common.js"></script>
 <script type="text/javascript" src="namegen.js"></script>
+<script src="https://jeremyckahn.github.io/keydrown/dist/keydrown.min.js"></script>
 <script type="text/javascript">
 function displayName(name) {
 	document.getElementById("thename").innerHTML = name;
 }
+function generateName(gender) {
+	return gender === "male" ? generateMaleName() : generateFemaleName();
+}
 function displayNameAnimated(numNames, delay, gender) {
-	var name = gender === "male" ? generateMaleName() : generateFemaleName();
-	displayName(name);
+	displayName(generateName(gender));
 	if (numNames > 1) {
 		var currentDelay = Math.max( 75, Math.pow( 0.8, numNames ) * delay );
 		setTimeout(function() { displayNameAnimated(numNames - 1, delay, gender); }, currentDelay);
@@ -19,8 +22,24 @@ function displayNameAnimated(numNames, delay, gender) {
 }
 function handleButtonClick(gender) {
 	ga('send', 'event', 'namegen', 'english-real', gender);
-	displayNameAnimated(10, 550, gender);
+	if (ANIMATED) {
+		displayNameAnimated(10, 550, gender);
+	} else {
+		displayName(generateName(gender));
+	}
 }
+
+var ANIMATED = true;
+document.addEventListener('keydown', function(evt) {
+	if (evt.keyCode === 16) {
+		ANIMATED = false;
+	}
+});
+document.addEventListener('keyup', function(evt) {
+	if (evt.keyCode === 16) {
+		ANIMATED = true;
+	}
+});
 </script>
 </head>
 </head>
