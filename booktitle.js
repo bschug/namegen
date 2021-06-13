@@ -8,18 +8,11 @@ function getNounsWeighted() {
 	for (const [noun, freq] of Object.entries(NOUNS_WITH_FREQUENCY)) {
 		result.push(new WeightedValue(noun, freq));
 	}
+	return result;
 }
 
 const NOUNS = Object.keys(NOUNS_WITH_FREQUENCY);
 const NOUNS_WEIGHTED = getNounsWeighted();
-
-function randomNoun() {
-	if (USE_WEIGHTS) {
-		return drawWeighted(NOUNS_WEIGHTED);
-	} else {
-		return draw(NOUNS);
-	}
-}
 
 
 
@@ -50,28 +43,23 @@ PROFESSIONS = [
 ];
 
 ANIMALS = ['Dog', 'Cat', 'Alpaca', 'Llama', 'Swordfish', 'Shark', 'Crocodile', 'Cattle', 'Sheep', 'Insect', 'Rat']
-
-ANIMAL_PROFESSIONS = [
-	function (a) { return a + " Breeder"; },
-	function (a) { return a + " Sitter"; },
-	function (a) { return a + " Keeper"; }
-]
+ANIMAL_PROFESSIONS = ["Breeder", "Sitter", "Keeper", "Trainer"]
 
 function randomAnimalProfession() {
 	const animal = draw(ANIMALS);
 	const prof = draw(ANIMAL_PROFESSIONS);
-	return prof(animal);
+	return animal + " " + prof;
 }
 
 function randomProfession() {
 	return drawWeighted([
 		new WeightedValue(function () { return draw(PROFESSIONS); }, 100),
-		new WeightedValue(function () { return randomAnimalProfession() }, 5)
+		new WeightedValue(function () { return randomAnimalProfession() }, 10)
 	])();
 }
 
 FEMALE_RELATIONS = [
-	'Sister', 'Wife', 'Daughter', 'Mother', 'Sister-in-Law', 'Mother-in-Law', 'Stepmother', 'Stepsister', 'Cousin', 'Girlfriend', 'Lover', 'Secretary', 'Aunt', 'Grandmother', 'Granddaughter', 'Cousin', 'Nurse',
+	'Sister', 'Wife', 'Daughter', 'Mother', 'Sister-in-Law', 'Mother-in-Law', 'Stepmother', 'Stepsister', 'Cousin', 'Girlfriend', 'Lover', 'Secretary', 'Aunt', 'Grandmother', 'Granddaughter', 'Cousin', 'Nurse', 'Woman'
 ]
 
 
@@ -80,12 +68,24 @@ function randomOccupationsFemaleRelation() {
 }
 
 function randomAofBandC() {
-	const firstNoun = randomNoun();
+	const firstNoun = drawWeighted(NOUNS_WEIGHTED);
 	var articleCandidates = ['A ', 'The '];
 	if (firstNoun.startsWith('A') || firstNoun.startsWith('E') || firstNoun.startsWith('I') || firstNoun.startsWith('O') || firstNoun.startsWith('U')) {
 		articleCandidates = ['An ', 'The '];
 	}
-	return draw(articleCandidates) + firstNoun + " of " + randomNoun() + " and " + randomNoun();
+	
+	var secondNoun = draw(NOUNS);
+	while (secondNoun === firstNoun) {
+		console.log("retry second noun because " + secondNoun + " = " + firstNoun);
+		secondNoun = draw(NOUNS);
+	}
+	var thirdNoun = draw(NOUNS);
+	while (thirdNoun === firstNoun || thirdNoun == secondNoun) {
+		console.log("retry 3rd noun because " + firstNoun + ", " + secondNoun + ", " + thirdNoun);
+		thirdNoun = draw(NOUNS);
+	}
+	
+	return draw(articleCandidates) + firstNoun + " of " + secondNoun + " and " + thirdNoun;
 }
 
 const GENERATORS = [
@@ -95,4 +95,16 @@ const GENERATORS = [
 
 function randomName() {
 	return drawWeighted(GENERATORS)();
+}
+
+function getNumberOfCombinations() {
+	var numAnimalProfessions = ANIMAL_PROFESSIONS.length * ANIMALS.length;
+	var numProfessions = PROFESSIONS.length + numAnimalProfessions;
+	var numFemaleRelations = FEMALE_RELATIONS.length;
+	var numOcsFemRel = numProfessions * numFemaleRelations;
+	
+	var numNouns = NOUNS.length;
+	var numAofBandC = 2 * numNouns * numNouns * numNouns;
+	
+	return numOcsFemRel + numAofBandC;
 }
