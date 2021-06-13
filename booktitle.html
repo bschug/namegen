@@ -1,21 +1,45 @@
 <html>
 <head>
-<title>Excuse Me</title>
+<meta charset="utf-8"/>
+<title>Random Books!</title>
 <link rel="stylesheet" type="text/css" href="namegen.css"></link>
-<script src="http://peterolson.github.com/BigInteger.js/BigInteger.min.js"></script>
 <script type="text/javascript" src="common.js"></script>
-<script type="text/javascript" src="excuses.js"></script>
+<script type="text/javascript" src="booktitle.js"></script>
+<script src="https://jeremyckahn.github.io/keydrown/dist/keydrown.min.js"></script>
 <script type="text/javascript">
 function displayName(name) {
 	document.getElementById("thename").innerHTML = name;
 }
-function handleButtonClick() {
-	ga('send', 'event', 'namegen', 'excuseme');
-	displayName(generateExcuse());
-	document.getElementById("thebutton").innerHTML = "Excuse Me" + draw([".","!","?","!?","?!"]);
+function displayNameAnimated(numNames, delay) {
+	displayName(randomName());
+	if (numNames > 1) {
+		var currentDelay = Math.max( 75, Math.pow( 0.8, numNames ) * delay );
+		setTimeout(function() { displayNameAnimated(numNames - 1, delay); }, currentDelay);
+	}
 }
+function handleButtonClick() {
+	ga('send', 'event', 'namegen', 'booktitle');
+	if (ANIMATED) {
+		displayNameAnimated(10, 550);
+	} else {
+		displayName(randomName());
+	}
+}
+
+var ANIMATED = true;
+document.addEventListener('keydown', function(evt) {
+	if (evt.keyCode === 16) {
+		ANIMATED = false;
+	}
+});
+document.addEventListener('keyup', function(evt) {
+	if (evt.keyCode === 16) {
+		ANIMATED = true;
+	}
+});
+
 </script>
-</head>
+
 </head>
 <body>
 	<div id="fb-root"></div>
@@ -35,6 +59,7 @@ function handleButtonClick() {
 
 	  ga('create', 'UA-67186151-1', 'auto');
 	  ga('send', 'pageview');
+
 	</script>
 
 	<div id='container'>
@@ -43,24 +68,22 @@ function handleButtonClick() {
 				<span id="thename"></span>
 			</div>
 			<div class='reroll-buttons centered'>
-				<button type="button" onclick="handleButtonClick()" id="thebutton">Excuse Me</button>
+				<!--button type="button" onclick="displayName(randomName())">Next</button-->
+                <button type="button" onclick="handleButtonClick()">New Name!</button>
 			</div>
 		</div>
 	</div>
 	<div id='footer' class='centered'>
 		<p class='centered'>You may also try:</p>
-		<p class='centered'><a href="namegen.html">Real English Names</a></p>
 		<p class="centered"><a href="esports.html">Esports Team Names</a></p>
+        <p class='centered'><a href='deutschname.html'>German Fantasy Names</a></p>
+		<p class="centered"><a href="esports.html">English Fantasy Names</a></p>
+		<p class='centered'><a href='namegen.html'>Real English Names</a></p>
 		<p class='centered'><a href='markov.html'>Markov-Chain English Names</a></p>
-		<p class='centered'><a href='randomname.html'>English Fantasy Names</a></p>
-		<p class='centered'><a href='deutschname.html'>German Fantasy Names</a></p>
 		<p class="centered"><a href="projectname.html">Tech Project Names</a></p>
-		<p class="centered"><a href="booktitle.html">Book Titles</a></p>
-		<div class="fb-like" data-href="http://bschug.net/namegen.html" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+		<p class="centered"><a href="excuses.html">Excuses</a></p>
+		<div class="fb-like" data-href="http://bschug.net/randomname.html" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
 	</div>
 
-	<script type="text/javascript">
-		displayName(generateExcuse());
-	</script>
 </body>
 </html>
