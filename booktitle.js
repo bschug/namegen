@@ -62,12 +62,49 @@ FEMALE_RELATIONS = [
 	'Sister', 'Wife', 'Daughter', 'Mother', 'Sister-in-Law', 'Mother-in-Law', 'Stepmother', 'Stepsister', 'Cousin', 'Girlfriend', 'Lover', 'Secretary', 'Aunt', 'Grandmother', 'Granddaughter', 'Cousin', 'Nurse', 'Woman'
 ]
 
+TOURIST_CITIES = [
+	'Hong Kong', 'Bangkok', 'London', 'Macau', 'Singapore', 'Paris', 'Dubai', 'New York', 'New York City', 'Kuala Lumpur', 'Istanbul', 'Delhi', 'Antalya', 'Shenzhen', 'Mumbai', 'Phuket', 'Rome', 'Tokyo', 'Pattaya', 'Taipei', 'Mecca', 'Guangzhou', 'Prague', 'Medina', 'Seoul', 'Amsterdam', 'Agra', 'Miami', 'Osaka', 'Las Vegas', 'Shanghai', 'Ho Chi Minh', 'Denpasar', 'Barcelona', 'Los Angeles', 'Milan', 'Chennai', 'Vienna', 'Johor Bahru', 'Jaipur', 'Cancun', 'Berlin', 'Cairo', 'Athens', 'Orlando', 'Moscow', 'Venice', 'Madrid', 'Ha Long', 'Riyadh', 'Dublin', 'Florence', 'Hanoi', 'Toronto', 'Johannesburg', 'Sydney', 'Munich', 'Jakarta', 'Beijing', 'Saint Petersburg', 'Brussels', 'Jerusalem', 'Budapest', 'Lisbon', 'Dammam', 'Penang Island', 'Heraklion', 'Kyoto', 'Zhuhai', 'Vancouver', 'Chiang Mai', 'Copenhagen', 'San Francisco', 'Melbourne', 'Warsaw', 'Marrakesh', 'Kolkata', 'Cebu City', 'Auckland', 'Tel Aviv', 'Guilin', 'Honolulu', 'Hurghada', 'Krakow', 'Mugla', 'Buenos Aires', 'Chiba', 'Frankfurt', 'Stockholm', 'Lima', 'Da Nang', 'Batam', 'Nice', 'Fukuoka', 'Abu Dhabi', 'Jeju', 'Porto', 'Rhodes', 'Rio de Janeiro', 'Krabi', 'Bangalore', 'Mexico City', 'Punta Cana', 'Sao Paulo', 'Zürich', 'Montreal', 'Washington D.C.', 'Chicago', 'Düsseldorf', 'Boston', 'Chengdu', 'Edinburgh', 'San Jose', 'Tehran', 'Houston', 'Hamburg', 'Cape Town', 'Manila', 'Bogota', "Xi'An", 'Beirut', 'Geneva', 'Colombo', 'Xiamen', 'Bucharest', 'Casablanca', 'Atlanta', 'Sofia', 'Dalian', 'Montevideo', 'Ammam', 'Hangzhou', 'Pune', 'Durban', 'Dallas', 'Accra', 'Quito', 'Tianjin', 'Qingdao', 'Philadelphia', 'Lagos'];
+ANCIENT_CITIES = [
+	'Luxor', 'Annaba', 'Asmara', 'Berbera', 'Tangier', 'Tripoli', 'Zeila', 'Avalites', 'Constantine', 'Benghazi', 'Mendefera', 'Askum', 'Alexandria', 'Mogadishu', 'Cairo', 'Kismayo', 'Fes', 'Oujda', 'Marrakesh',
+	'Benin', 'Ife', 'Zanzibar', 'Walata', 'Sofala', 'Pate', 'Mombasa', 'Moroni', 'Agadez', 'Kano', 'Timbuktu', 'Malindi', "M'banza", 'Quelimane', 'Tanga', 'Lagos', 'Ouidah', 'Cape Town', 'Kumasi',
+	'Quito', 'Cusco', 'Cumana', 'Santa Marta', 'Sao Vicente', 'Sao Paulo', 'Piura', 'Lima', 'Cali', 'Asuncion', 'Santiago', 'Salvador', 'Santiago de Estero',
+	'Sayram', 'Delhi', 'Peshawar', 'Bukhara', 'Varanasi', 'Bactra', 'Ujjain', 'Madurai', 'Patna', 'Samarqand', 'Chittagong', 'Amaravati', 'Bamyan', 'Kathmandu', 'Lahore', 
+	'Hanoi', 'Jakarta', 'Lavo', 'Palembang', 'Manila', 'Phnom Penh', 'Malacca',
+	'Damascus', 'Jericho', 'Beirut', 'Jerusalem', 'Aleppo', 'Homs', 'Erbil', 'Arrapha', 'Ankara', 'Jaffa', 'Acre', 'Hebron', 'Istanbul', 'Byzantion', 'Lod', 
+	'Argos', 'Genoa', 'Athens', 'Thebes', 'Lisbon', 'Chios', 'Nicosia', 'Seville', 'Malaga', 'Medina', 'Cagliari', 'Messina', 'Como', 'Rome', 'Calabria', 'Palermo', 'Syracuse', 'Volterra', 'Kroton', 'Taras', 'Corfu', 'Naples', 'Ibiza', 'Marseille', 'Milan', 'Lamia', 'Rhodes', 'Sofia', 'Metz', 'Thessaloniki', 'Barcelona', 'Belgrade', 'Cartagena', 'Tarragona', 'Bratislava', 'Valencia', 'Paris', 'Zürich', 'Cologne', 'Trier', 'Augsburg', 'Worms', 'Strasbourg', 'Skopje'];
+ISLANDS = [
+	'Mallorca', 'Paros', 'St Lucia', 'Öland', 'Tobago', 'Formentera', 'Culebra', 'Koh Rong Samloem', 'Cozumel', 'Jicaro', 'La Digue', 'Seychelles', 'Laucala Island', 'Fiji', 'Mont-Saint Michel', 'St. Barts', 'the Caribbean', 'Salt Spring Island', 'Grand Cayman', 'Cayman Islands', 'Pulau Tengah', 'Gozo', 'the Galapagos Islands', 'Raningtoto Island', 'Curacao', 'the Maldives', 'Cebu', 'the Philippines', 'Aitutaki', 'the Cook Islands', 'Colonsay', 'Kauai', 'Hawaii', 'Havelock Island', 'the Andaman Islands', 'Santorini', 'Corsica', 'Cape Breton Island', 'Ibiza', 'Bali', 'Fraser Island', 'Capri', 'Koh Tao', 'Azores', 'Rawa Island', 'Bora Bora', 'Lummi Island', 'Barbados', 'Pemba Island', 'Zanzibar', 'the Aran Islands', 'Korcula', 'Sommaroy', 'Espiritu Santo', 'Palawan', 'Flatey'];
+	
+function randomPlace() {	
+	return draw([
+		function() { return draw(TOURIST_CITIES); },
+		function() { return draw(['Ancient ','']) + draw(ANCIENT_CITIES); },
+		function() { return draw(ISLANDS); }
+	])();
+}
 
-function randomOccupationsFemaleRelation() {
+function plural(word) {
+	wlen = word.length;
+	if (word[wlen-1] == 'y' && !'aeiou'.includes(word[wlen-2])) {
+		return word.substring(0, wlen-1) + 'ies';
+	}
+	if (word.endsWith('-in-Law')) {
+		return word.substring(0, wlen-7) + 's-in-Law';
+	}
+	if (word.endsWith('man')) {
+		return word.substring(0, wlen-2) + 'en';
+	}
+	return word + 's';
+}
+
+function unchanged(word) { return word; }
+	
+
+function occupationsFemaleRelation() {
 	return "The " + randomProfession() + "'s " + draw(FEMALE_RELATIONS);
 }
 
-function randomAofBandC() {
+function AofBandC() {
 	const firstNoun = drawWeighted(NOUNS_WEIGHTED);
 	var articleCandidates = ['A ', 'The '];
 	if (firstNoun.startsWith('A') || firstNoun.startsWith('E') || firstNoun.startsWith('I') || firstNoun.startsWith('O') || firstNoun.startsWith('U')) {
@@ -85,12 +122,36 @@ function randomAofBandC() {
 		thirdNoun = draw(NOUNS);
 	}
 	
-	return draw(articleCandidates) + firstNoun + " of " + secondNoun + " and " + thirdNoun;
+	return draw(articleCandidates) + firstNoun + " of " + secondNoun + draw(['', " and " + thirdNoun]);
+}
+	
+
+function theOccupationOfPlace() {
+	const profession = draw([unchanged, plural])(randomProfession());
+	const place = randomPlace();
+	return "The " + profession + " of " + place;
+}
+
+function theFemaleRelationOfPlace() {
+	const femrel = draw([unchanged, plural])(draw(FEMALE_RELATIONS));
+	const place = randomPlace();
+	return 'The ' + femrel + ' of ' + place;
+}
+
+function theFemaleRelationOfPlacesProfession() {
+	const femrel = draw([unchanged, plural])(draw(FEMALE_RELATIONS));
+	const place = randomPlace();
+	const profession = draw([unchanged, plural])(randomProfession());
+	
+	return 'The ' + femrel + ' of ' + place + "'s " + profession;
 }
 
 const GENERATORS = [
-	new WeightedValue(randomAofBandC, 1),
-	new WeightedValue(randomOccupationsFemaleRelation, 1)
+	new WeightedValue(AofBandC, 1),
+	new WeightedValue(occupationsFemaleRelation, 1),
+	new WeightedValue(theOccupationOfPlace, 1),
+	new WeightedValue(theFemaleRelationOfPlace, 1),
+	new WeightedValue(theFemaleRelationOfPlacesProfession, 1)
 ]
 
 function randomName() {
@@ -102,9 +163,13 @@ function getNumberOfCombinations() {
 	var numProfessions = PROFESSIONS.length + numAnimalProfessions;
 	var numFemaleRelations = FEMALE_RELATIONS.length;
 	var numOcsFemRel = numProfessions * numFemaleRelations;
+	var numPlaces = TOURIST_CITIES.length + 2 * ANCIENT_CITIES.length + ISLANDS.length;
 	
 	var numNouns = NOUNS.length;
 	var numAofBandC = 2 * numNouns * numNouns * numNouns;
+	var numOccOfPlace = numProfessions * 2 * numPlaces;
+	var numFemRelOfPlace = numFemaleRelations * 2 * numPlaces;
+	var numFemRelOfPlacesProf = numFemaleRelations * 2 * numPlaces * numProfessions * 2;
 	
-	return numOcsFemRel + numAofBandC;
+	return numOcsFemRel + numAofBandC + numOccOfPlace + numFemRelOfPlace + numFemRelOfPlacesProf;
 }
