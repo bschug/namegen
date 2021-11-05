@@ -13,12 +13,15 @@
 <script type="text/javascript" src="esports.js"></script>
 <script src="https://jeremyckahn.github.io/keydrown/dist/keydrown.min.js"></script>
 <script type="text/javascript">
+function randomName() {
+	var name = Generate(50);
+	return name.Name + " [" + name.Tag + "]";
+}
 function displayName(name) {
 	document.getElementById("thename").innerHTML = name;
 }
 function displayNameAnimated(numNames, delay) {
-    var name = Generate(50);
-    displayName(name.Name + " [" + name.Tag + "]");
+    displayName(randomName());
 	if (numNames > 1) {
 		var currentDelay = Math.max( 75, Math.pow( 0.8, numNames ) * delay );
 		setTimeout(function() { displayNameAnimated(numNames - 1, delay); }, currentDelay);
