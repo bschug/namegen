@@ -9,13 +9,15 @@ const INTROS = [
 	"Sorry guys. It's kind of a long story,",
 	"Sorry everyone. Crazy story,",
 	"Sorry I'm late. You're not gonna believe this,",
-	"I'm sorry, but I can explain:",
+	"Sorry about the time. Long story short,",
+	"I'll be a bit late because",
+	"I know this sounds crazy, but",
 ];
 
 const INTRO_GLUE = [",", ". I'm really sorry about that, but", " because", ". It's kind of a long story,"]
 
 const PEOPLE = ["wife", "husband", "brother", "kid", "grandma", "grandpa", "mother", "father", "friend", "girlfriend", "boyfriend", "imaginary friend", "dog", "cat", "hamster", "doctor", "chicken",
-               "parole officer", "uncle"];
+               "parole officer", "uncle", "aunt Karen"];
 
 const PLACES_FOR_PEOPLE = ["doctor", "airport", "supermarket", "pharmacy", "hospital", "cemetary", "zoo", "school", "university", "divorce lawyer", "police", "restaurant", 
                            "B&uuml;rgeramt", "homeless shelter", "law school", "med school", "house", "apartment"];
@@ -28,9 +30,9 @@ const THINGS_THAT_BREAK = ["car", "computer", "laptop", "monitor", "mouse", "key
 const ACTIVITIES = ["driving", "sleeping", "on my way home", "doing groceries", "finishing my tasks", "working overtime", "being busy", "working hard", "going to the airport", 
                     "on the train", "swimming", "taking a shower", "feeding my cat", "feeding my dog", "on the phone", "binge drinking", "smoking weed", "faking statistics", 
                     "watering the plants", "playing video games", "planning", "drinking coffee", "doing drugs", "coming up with an excuse", "browsing reddit", "getting wasted",
-                    "smoking a cigarette", "having a smoke", "getting some fresh air", "dying"];
+                    "smoking a cigarette", "having a smoke", "getting some fresh air"];
 
-const THINGS_TO_LOSE = ["glasses", "wallet", "sanity", "beer", "shit", "password", "money", "Facebook password", "Trello account", "keys", "inheritance", "claim to the throne", 
+const THINGS_TO_LOSE = ["glasses", "wallet", "sanity", "beer", "password", "money", "Facebook password", "Trello account", "keys", "inheritance", "claim to the throne", 
                         "trust", "shirt", "clothes", "underwear", "cocaine", "argument", "dignity", "excuse", "homework", "virginity", "custody hearing", "parole hearing", "trial"];
 
 const THINGS_TO_CRASH = [
@@ -41,12 +43,12 @@ const EMOTIONS = [
 	"anxious", "agitated", "wrong"];
 
 const DESTROYED = ["lost", "crushed", "dropped", "burned", "broke", "forgot", "ate"];
-const INJURED = ["cut", "crushed", "broke", "burned", "hurt", "tore", "sprained", "cut off"];
+const INJURED = ["cut", "crushed", "broke", "burned", "hurt", "tore", "sprained", "cut off", "shot", "severed", "touched"];
 
 const TIMES = ["yesterday", "today", "last night", "the other day", "last year", "just now", "recently", "this morning"];
 
 const BAD_THINGS = [
-	"gas prices", "death", "capitalism", "the heat death of the universe", "our project", "the future", "the past", 
+	"the gas prices", "death", "capitalism", "the heat death of the universe", "our project", "the future", "the past", 
 	"politics", "my drug addiction", "my second marriage", "my lost youth", "all the lost opportunities", 
 	"starving children", "last night", "all my past mistakes", "when I became old", "being late",
 	"why I don't understand those kids anymore", "the stupidity of our species", "asteroid impacts", "supervolcanos", 
@@ -120,7 +122,8 @@ function generateReason()
 	someoneInjuredABodyPart,
 	tooMuchActivity,
 	iHadToRevenge,
-	thereWasAnObstacle
+	thereWasAnObstacle,
+	iSpentTime,
 	])();
 }
 
@@ -210,6 +213,18 @@ function thereWasAnObstacle() {
 	return "there was " + a(draw(OBSTACLES)) + draw([" at the ", " at my "]) + draw(PLACES_FOR_PEOPLE) + when();
 }
 
+function iSpentTime() {
+	return draw([
+			"I spent too much time ", 
+			"I spent a lot of time ",
+		])
+		+ draw([
+			() => draw(ACTIVITIES),
+			() => "on " + draw(PLACES_TO_BE_ON),
+			() => "at the " + draw(PLACES_FOR_PEOPLE),
+		])();
+}
+
 function someoneWasDoingSomething() {
 	return someoneWas() + activity() + when();
 }
@@ -268,7 +283,7 @@ function activity() {
 	const againstWho = draw([
 		() => "the " + draw(PLACES_FOR_PEOPLE),
 		() => someonePassive(),
-		() => "the " + draw(BAD_THINGS),
+		() => draw(BAD_THINGS),
 	]);	
 	
 	return draw([
@@ -289,15 +304,13 @@ function when() {
 		function() { return "" },
 		function() { return "" },
 		function() { return " " + draw(TIMES)},
-		function() { return " while I was " + draw(ACTIVITIES)},
-		function() { return " at the " + draw(PLACES_FOR_PEOPLE)},
-		function() { return " while I was taking my " + draw(PEOPLE) + " to the " + draw(PLACES_FOR_PEOPLE)},
-		function() { return ", so I spent a lot of time " + draw(ACTIVITIES)},
+		function() { return ", so " + generateReason() },
 		function() { return " because " + generateReason() },
-    function() { return " when " + generateReason() },
-    function() { return " and then " + generateReason() }
+		function() { return " when " + generateReason() },
+		function() { return " and then " + generateReason() },
 	])();
 }
+
 
 function a(word) {
   if ("aeio".includes(word[0])) {

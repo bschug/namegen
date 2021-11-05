@@ -3,9 +3,10 @@
 <meta charset="utf-8"/>
 <title>Project:Name</title>
 <link rel="stylesheet" type="text/css" href="namegen.css"></link>
-<script src="http://peterolson.github.com/BigInteger.js/BigInteger.min.js"></script>
+<script src="http://peterolson.github.io/BigInteger.js/BigInteger.min.js"></script>
 <script type="text/javascript" src="common.js"></script>
 <script type="text/javascript" src="projectname.js"></script>
+<script src="https://jeremyckahn.github.io/keydrown/dist/keydrown.min.js"></script>
 <script type="text/javascript">
 function displayName(name) {
 	document.getElementById("thename").innerHTML = name;
@@ -19,8 +20,24 @@ function displayNameAnimated(numNames, delay) {
 }
 function handleButtonClick() {
 	ga('send', 'event', 'namegen', 'projectname');
-	displayNameAnimated(10, 550);
+	if (ANIMATED) {
+		displayNameAnimated(10, 550);
+	} else {
+		displayName(randomName());
+	}
 }
+
+var ANIMATED = true;
+document.addEventListener('keydown', function(evt) {
+	if (evt.keyCode === 16) {
+		ANIMATED = false;
+	}
+});
+document.addEventListener('keyup', function(evt) {
+	if (evt.keyCode === 16) {
+		ANIMATED = true;
+	}
+});
 </script>
 
 </head>
@@ -63,6 +80,7 @@ function handleButtonClick() {
 		<p class='centered'><a href='markov.html'>Markov-Chain English Names</a></p>
 		<p class='centered'><a href='deutschname.html'>German Fantasy Names</a></p>
 		<p class="centered"><a href="excuses.html">Excuses</a></p>
+		<p class="centered"><a href="booktitle.html">Book Titles</a></p>
 		<div class="fb-like" data-href="http://bschug.net/deutschname.html" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
 	</div>
 

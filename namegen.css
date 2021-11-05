@@ -26,6 +26,8 @@ p, button { font-size: 14pt; }
 #thename {
 	font-weight: bold;
 	font-size: 40pt;
+	padding: 0 5% 0 5%;
+	display: inline-block;
 }
 
 .reroll-buttons {
