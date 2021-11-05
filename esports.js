@@ -6,7 +6,7 @@ var Both = [
     "Metal", "Gold", "Lead", "Platinum", "Silver", "Silicon", "Stone", "Steel", "Iron",
     "Cake", "Cookie","Murder", "Illuminati", "Skull", "Skill", "Anger", "Youth", "Temple",
     "Five", "Gang", "Code", "Core", "Hype", "Cheese",
-    "Pro"    
+    "Pro", "Crash", "Spaghetti", "Bleeding", "Fury", "Rage", "Anarchy", "Vengeance", "Thorn"
 ];
 var Prefix = [
     "Tiger", "Bull", "Llama", "Bear", "Monkey", "Dino", "Raptor", "Goat", "Raven", "Dragon", "Mouse",
@@ -24,6 +24,9 @@ var Prefix = [
     "Guild of", "Nation of", "Family of", "Cult of", "Rite of", "Legend of", "Gang of", "Mother of all", "All the", "Against the",
     "Knights of", "Sacrifice of", "To the", "Shooting for the", "Law of", "Your Mom's", "Born in", "Hiding in", "Hiding from", 
     "Pursuing the", "Pursuit of", "Follow the", "Running with", "Running from",
+	"Your", "My", "Little", "Epiphany of the", "Passion of the", "Taste the", "Night of the", "Age of", "Multiple", "The Many",
+	"Rancid", "Insane", "Rabid", "Bloody", "Forbidden", "Frantic", "Inner", "Guilty", "Heavy", "Illegal", "Sinister", "Crazy", "Troubled",
+	"Warrior", "Angel", "Goblin", "Secret",
 ];
 var Suffix = [
     "Pigs", "Panthers", "Tigers", "Bulls", "Horses", "Llamas", "Bears", "Monkeys", "Dinos", "Raptors", "Goats", "Wolves",
@@ -38,7 +41,8 @@ var Suffix = [
     "Swords", "Axes", "Guns", "Arms", "Bullets", "Fist", "Fists", "Razors", "Claws",
     "Fall", "Force", "Fear", "Thrones", "Torment", "Gates", "Dawn", "Spirits", "Forest", "Slaughters", "Wrath", "Heaven",
     "Noise", "Music", "Songs", "Burns", "Sources", "Sacrifices", "is Real",
-    "Plus", "Laws", "Moms", "Mothers"
+    "Plus", "Laws", "Moms", "Mothers", "Override", "Overdrive", "Devils", "Empire", "Zombies", "Sin", "Warriors", "Angels",
+	"Henchmen", "Tendencies", "Soldiers", "Goblins", "Spawn", "Realm", "Secrets"
 ];
 
 var Vowels = "aeiouAEIOU";
