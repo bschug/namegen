@@ -1,0 +1,93 @@
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Random Books!</title>
+<link rel="stylesheet" type="text/css" href="namegen.css"></link>
+<script src="http://peterolson.github.io/BigInteger.js/BigInteger.min.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript" src="companyname.js"></script>
+<script src="https://jeremyckahn.github.io/keydrown/dist/keydrown.min.js"></script>
+<script type="text/javascript">
+function displayName(name) {
+	document.getElementById("thename").innerHTML = name;
+}
+function displayNameAnimated(numNames, delay) {
+	displayName(randomName());
+	if (numNames > 1) {
+		var currentDelay = Math.max( 75, Math.pow( 0.8, numNames ) * delay );
+		setTimeout(function() { displayNameAnimated(numNames - 1, delay); }, currentDelay);
+	}
+}
+function handleButtonClick() {
+	ga('send', 'event', 'namegen', 'companyname');
+	if (ANIMATED) {
+		displayNameAnimated(10, 550);
+	} else {
+		displayName(randomName());
+	}
+}
+
+var ANIMATED = true;
+document.addEventListener('keydown', function(evt) {
+	if (evt.keyCode === 16) {
+		ANIMATED = false;
+	}
+});
+document.addEventListener('keyup', function(evt) {
+	if (evt.keyCode === 16) {
+		ANIMATED = true;
+	}
+});
+
+</script>
+
+</head>
+<body>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	</script>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-67186151-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+
+	<div id='container'>
+		<div id='innercontainer'>
+			<div class='thename centered'>
+				<span id="thename"></span>
+			</div>
+			<div class='reroll-buttons centered'>
+				<!--button type="button" onclick="displayName(randomName())">Next</button-->
+                <button type="button" onclick="handleButtonClick()">New Name!</button>
+			</div>
+		</div>
+	</div>
+	<div id='footer' class='centered'>
+		<p class='centered'>You may also try:</p>
+		<p class="centered"><a href="esports.html">Esports Team Names</a></p>
+        <p class='centered'><a href='deutschname.html'>German Fantasy Names</a></p>
+		<p class="centered"><a href="esports.html">English Fantasy Names</a></p>
+		<p class='centered'><a href='namegen.html'>Real English Names</a></p>
+		<p class='centered'><a href='markov.html'>Markov-Chain English Names</a></p>
+		<p class="centered"><a href="projectname.html">Tech Project Names</a></p>
+		<p class="centered"><a href="excuses.html">Excuses</a></p>
+		<div class="fb-like" data-href="http://bschug.net/randomname.html" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+	</div>
+
+	<script type="text/javascript">
+		document.title = "" + abbreviateNumber(getNumberOfCombinations(), US_NUMBER_NAMES) + " Random Books!";
+	</script>
+</body>
+</html>
