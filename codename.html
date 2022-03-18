@@ -1,31 +1,29 @@
 <html>
 <head>
-<title>Namegen</title>
+<meta charset="utf-8"/>
+<title>Code Names</title>
 <link rel="stylesheet" type="text/css" href="namegen.css"></link>
 <script src="http://peterolson.github.io/BigInteger.js/BigInteger.min.js"></script>
 <script type="text/javascript" src="common.js"></script>
-<script type="text/javascript" src="namegen.js"></script>
+<script type="text/javascript" src="codename.js"></script>
 <script src="https://jeremyckahn.github.io/keydrown/dist/keydrown.min.js"></script>
 <script type="text/javascript">
 function displayName(name) {
 	document.getElementById("thename").innerHTML = name;
 }
-function generateName(gender) {
-	return gender === "male" ? generateMaleName() : generateFemaleName();
-}
-function displayNameAnimated(numNames, delay, gender) {
-	displayName(generateName(gender));
+function displayNameAnimated(numNames, delay) {
+	displayName(randomName());
 	if (numNames > 1) {
 		var currentDelay = Math.max( 75, Math.pow( 0.8, numNames ) * delay );
-		setTimeout(function() { displayNameAnimated(numNames - 1, delay, gender); }, currentDelay);
+		setTimeout(function() { displayNameAnimated(numNames - 1, delay); }, currentDelay);
 	}
 }
-function handleButtonClick(gender) {
-	ga('send', 'event', 'namegen', 'english-real', gender);
+function handleButtonClick() {
+	ga('send', 'event', 'namegen', 'projectname');
 	if (ANIMATED) {
-		displayNameAnimated(10, 550, gender);
+		displayNameAnimated(10, 550);
 	} else {
-		displayName(generateName(gender));
+		displayName(randomName());
 	}
 }
 
@@ -41,7 +39,7 @@ document.addEventListener('keyup', function(evt) {
 	}
 });
 </script>
-</head>
+
 </head>
 <body>
 	<div id="fb-root"></div>
@@ -63,32 +61,32 @@ document.addEventListener('keyup', function(evt) {
 	  ga('send', 'pageview');
 	</script>
 
+
 	<div id='container'>
 		<div id='innercontainer'>
 			<div class='thename centered'>
 				<span id="thename"></span>
 			</div>
 			<div class='reroll-buttons centered'>
-				<button type="button" onclick="handleButtonClick('male')">Male</button>
-				<button type="button" onclick="handleButtonClick('female')">Female</button>
+				<button type="button" onclick="handleButtonClick()">New Name!</button>
 			</div>
 		</div>
 	</div>
 	<div id='footer' class='centered'>
 		<p class='centered'>You may also try:</p>
 		<p class="centered"><a href="esports.html">Esports Team Names</a></p>
-		<p class='centered'><a href='markov.html'>Markov-Chain English Names</a></p>
 		<p class='centered'><a href='randomname.html'>English Fantasy Names</a></p>
+		<p class='centered'><a href='namegen.html'>Real English Names</a></p>
+		<p class='centered'><a href='markov.html'>Markov-Chain English Names</a></p>
 		<p class='centered'><a href='deutschname.html'>German Fantasy Names</a></p>
 		<p class="centered"><a href="projectname.html">Tech Project Names</a></p>
 		<p class="centered"><a href="excuses.html">Excuses</a></p>
 		<p class="centered"><a href="booktitle.html">Book Titles</a></p>
-		<p class="centered"><a href="codename.html">Code Names</a></p>
-		<div class="fb-like" data-href="http://bschug.net/namegen.html" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+		<div class="fb-like" data-href="http://bschug.net/deutschname.html" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
 	</div>
 
 	<script type="text/javascript">
-		document.title = "" + abbreviateNumber(getNumberOfCombinations(), US_NUMBER_NAMES) + " English Names!";
+		document.title = "" + abbreviateNumber(getNumberOfCombinations(), SI_PREFIX_SYMBOLS) + " Project Names!";
 	</script>
 </body>
 </html>
