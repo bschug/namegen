@@ -19,9 +19,25 @@ function displayNameAnimated(numNames, delay) {
 	}
 }
 function handleButtonClick() {
-	ga('send', 'event', 'namegen', 'german-fantasy');
-	displayNameAnimated(10, 550);
+	ga('send', 'event', 'namegen', 'esports');
+	if (ANIMATED) {
+		displayNameAnimated(10, 550);
+	} else {
+		displayName(randomName());
+	}
 }
+
+var ANIMATED = true;
+document.addEventListener('keydown', function(evt) {
+	if (evt.keyCode === 16) {
+		ANIMATED = false;
+	}
+});
+document.addEventListener('keyup', function(evt) {
+	if (evt.keyCode === 16) {
+		ANIMATED = true;
+	}
+});
 </script>
 
 </head>
